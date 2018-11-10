@@ -1,8 +1,8 @@
 {
-  "vendor":"alis",
+  "vendor":"open air interface",
   "version":"0.1",
-  "name":"oai-mee",
-  "type":"mme",
+  "name":"oai_mme",
+  "type":"oai_mme",
   "endpoint":"generic",
   "configurations":
   {
@@ -12,7 +12,7 @@
     {
       "vm_image":
       [
-        ""
+        "oai_mme"
       ],
       "vimInstanceName":
       [
@@ -24,21 +24,24 @@
           "connection_point":
           [
             {
-              "virtual_link_reference":"S6a",
-              "interfaceId":0
-            },
-            {
-              "floatingIp":"random",
-              "virtual_link_reference":"S1",
+              "virtual_link_reference":"mngt",
               "interfaceId":1
             },
             {
-              "virtual_link_reference":"S11",
+              "virtual_link_reference":"S6a",
               "interfaceId":2
             },
             {
-              "virtual_link_reference":"S10",
+              "virtual_link_reference":"S1",
               "interfaceId":3
+            },
+            {
+              "virtual_link_reference":"S11",
+              "interfaceId":4
+            },
+            {
+              "virtual_link_reference":"S10",
+              "interfaceId":5
             }
           ]
         }
@@ -47,6 +50,9 @@
   ],
   "virtual_link":
   [
+    {
+      "name":"mngt"
+    },
     {
       "name":"S6a"
     },
@@ -66,7 +72,8 @@
       "event":"INSTANTIATE",
       "lifecycle_events":
       [
-        "instantiate.sh",
+        "multinic.sh",
+        "instantiate.sh"
       ]
     },
     {
@@ -81,7 +88,7 @@
       "event":"START",
       "lifecycle_events":
       [
-        "start.sh",
+        "start.sh"
       ]
     }
   ],
@@ -93,11 +100,11 @@
   ],
   "requires":
   {
-    "hss":{
-        "parameters":["S6a"]
+    "oai_hss":{
+      "parameters":["S6a"]
     },
-    "sgpw":{
-        "parameters":["S11"]
+    "oai_spgw":{
+      "parameters":["S11"]
     }
   }
 }

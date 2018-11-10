@@ -1,0 +1,6 @@
+name: oai_spgw
+description: no description
+provider: open air interface
+nfvo_version: 6.0.0
+vim_types:
+  - openstack

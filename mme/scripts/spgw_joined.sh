@@ -1,6 +1,7 @@
 # prompt has been removed for easier Ctrl+C Ctrl+V
 # cd $OPENAIRCN_DIR/scripts
 # S6a
+echo "HSS S6a IP is: ${spgw_S11}"
 cd /home/ubuntu/openair-cn/scripts
 #sudo ifconfig ens9:11 172.66.1.111 up
 INSTANCE=1
@@ -15,8 +16,8 @@ cp ../etc/mme.conf  $PREFIX
 
 declare -A MME_CONF
 
-MME_CONF[@SGW_IPV4_ADDRESS_FOR_S11_TEST_0@]='${spgw_S11}/24'
-MME_CONF[@SGW_IPV4_ADDRESS_FOR_S11_0@]='${spgw_S11}/24'
+MME_CONF[@SGW_IPV4_ADDRESS_FOR_S11_TEST_0@]="${spgw_S11}/24"
+MME_CONF[@SGW_IPV4_ADDRESS_FOR_S11_0@]="${spgw_S11}/24"
 
 for K in "${!MME_CONF[@]}"; do
   egrep -lRZ "$K" $PREFIX | xargs -0 -l sed -i -e "s|$K|${MME_CONF[$K]}|g"

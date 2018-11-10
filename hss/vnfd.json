@@ -1,9 +1,9 @@
 {
-  "vendor":"alis",
-  "version":"0.1",
-  "name":"oai-hss",
-  "type":"hss",
-  "endpoint":"generic",
+  "name": "oai_hss",
+  "vendor": "open air interface",
+  "version": "0.1",
+  "type": "oai_hss",
+  "endpoint": "generic",
   "configurations":
   {
   },
@@ -12,7 +12,7 @@
     {
       "vm_image":
       [
-        ""
+        "oai_hss"
       ],
       "vimInstanceName":
       [
@@ -24,8 +24,12 @@
           "connection_point":
           [
             {
+              "virtual_link_reference":"mngt",
+              "interfaceId":1
+            },
+            {
               "virtual_link_reference":"S6a",
-              "interfaceId":0
+              "interfaceId":2
             }
           ]
         }
@@ -34,6 +38,9 @@
   ],
   "virtual_link":
   [
+    {
+      "name":"mngt"
+    },
     {
       "name":"S6a"
     }
@@ -44,14 +51,15 @@
       "event":"INSTANTIATE",
       "lifecycle_events":
       [
-        "instantiate.sh",
+        "multinic.sh",
+        "instantiate.sh"
       ]
     },
     {
       "event":"START",
       "lifecycle_events":
       [
-        "start.sh",
+        "start.sh"
       ]
     }
   ],

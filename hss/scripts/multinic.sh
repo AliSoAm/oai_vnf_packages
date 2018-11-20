@@ -6,10 +6,10 @@ if [ $? -ne 0 ];then
 fi
 netfile=$(find /etc/network/interfaces.d -name "*.cfg")
 for interface in $(ls -1 /sys/class/net | grep ens) ;do
-   cat $netfile | grep $interface >> /dev/null
-   if [ $? -ne 0 ];then
-     sudo bash -c "echo 'auto $interface' >> ${netfile}"
-     sudo bash -c "echo 'iface $interface inet dhcp' >> ${netfile}"
-     sudo ifup $interface
+  cat $netfile | grep $interface >> /dev/null
+  if [ $? -ne 0 ]; then
+    sudo bash -c "echo 'auto $interface' >> ${netfile}"
+    sudo bash -c "echo 'iface $interface inet dhcp' >> ${netfile}"
+    nohup sudo ifup $interface > /dev/null 2 > /dev/null &
   fi
 done

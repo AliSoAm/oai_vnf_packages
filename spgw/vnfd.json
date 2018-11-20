@@ -37,10 +37,12 @@
               "interfaceId":2
             },
             {
+              "floatingIp":"random",
               "virtual_link_reference":"S1U",
               "interfaceId":3
             },
             {
+              "floatingIp":"random",
               "virtual_link_reference":"SGi",
               "interfaceId":4
             }
@@ -70,8 +72,7 @@
       "event":"INSTANTIATE",
       "lifecycle_events":
       [
-        "multinic.sh",
-        "instantiate.sh"
+        "multinic.sh"
       ]
     },
     {

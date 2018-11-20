@@ -32,6 +32,7 @@
               "interfaceId":2
             },
             {
+              "floatingIp":"random",
               "virtual_link_reference":"S1",
               "interfaceId":3
             },
@@ -77,11 +78,11 @@
       ]
     },
     {
-     "event":"CONFIGURE",
-     "lifecycle_events":
+      "event":"CONFIGURE",
+      "lifecycle_events":
       [
-        "hss_joined.sh",
-        "spgw_joined.sh"
+        "oai_hss_joined.sh",
+        "oai_spgw_joined.sh"
       ]
     },
     {

@@ -10,7 +10,9 @@ sudo mkdir -m 777    $PREFIX/freeDiameter
 cp ../etc/mme_fd.sprint.conf  $PREFIX/freeDiameter/mme_fd.conf
 
 cp ../etc/mme.conf  $PREFIX
-
+echo "SPGW1: ${OB_oai_spgw1_VNFC_S11} SPGW2: ${OB_oai_spgw2_VNFC_S11}"
+echo "HSS: ${OB_oai_hss_VNFC_S6a}"
+echo "S6a: ${S6a} ut: ${ut} S11: ${S11} S10: ${S10}"
 declare -A MME_CONF
 MME_CONF[@MME_S6A_IP_ADDR@]="${S6a}"
 MME_CONF[@INSTANCE@]=$INSTANCE
@@ -35,8 +37,8 @@ MME_CONF[@MME_IPV4_ADDRESS_FOR_S11@]="${S11}/24"
 MME_CONF[@MME_INTERFACE_NAME_FOR_S10@]='ens7'
 MME_CONF[@MME_IPV4_ADDRESS_FOR_S10@]="${S10}/24"
 MME_CONF[@OUTPUT@]='CONSOLE'
-MME_CONF[@SGW_IPV4_ADDRESS_FOR_S11_TEST_0@]="${OB_oai_spgw_VNFC_S11}/24"
-MME_CONF[@SGW_IPV4_ADDRESS_FOR_S11_0@]="${OB_oai_spgw_VNFC_S11}/24"
+MME_CONF[@SGW_IPV4_ADDRESS_FOR_S11_TEST_0@]="${OB_oai_spgw1_VNFC_S11}/24"
+MME_CONF[@SGW_IPV4_ADDRESS_FOR_S11_0@]="${OB_oai_spgw2_VNFC_S11}/24"
 MME_CONF[@PEER_MME_IPV4_ADDRESS_FOR_S10_0@]='0.0.0.0/24'
 MME_CONF[@PEER_MME_IPV4_ADDRESS_FOR_S10_1@]='0.0.0.0/24'
 
@@ -76,6 +78,10 @@ for K in "${!MME_CONF[@]}"; do
   egrep -lRZ "$K" $PREFIX | xargs -0 -l sed -i -e "s|$K|${MME_CONF[$K]}|g"
   ret=$?;[[ ret -ne 0 ]] && echo "Tried to replace $K with ${MME_CONF[$K]}"
 done
+
+sed -i "s|GUMMEI_LIST = (|GUMMEI_LIST = ( {MCC=\"1\" ; MNC=\"1\"; MME_GID=\"32768\" ; MME_CODE=\"3\";},|g" ${PREFIX}/mme.conf
+
+sed -i "s|{MCC=\"262\" ; MNC=\"79\";  TAC = \"601\"; }|{MCC=\"1\" ; MNC=\"1\";  TAC = \"7\"; }|g" ${PREFIX}/mme.conf
 
 # freeDiameter certificate
 sudo ./check_mme_s6a_certificate $PREFIX/freeDiameter mme.${MME_CONF[@REALM@]}

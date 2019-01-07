@@ -1,8 +1,8 @@
 {
   "vendor":"open air interface",
   "version":"0.1",
-  "name":"oai_spgw",
-  "type":"oai_spgw",
+  "name":"oai_spgw2",
+  "type":"oai_spgw2",
   "endpoint":"generic",
   "configurations":
   {
@@ -10,8 +10,16 @@
     "configurationParameters":
     [
       {
-        "confKey":"key",
-        "value":"value"
+        "confKey":"address",
+        "value":"12.1.1.2 - 12.1.1.224"
+      },
+      {
+        "confKey":"dns1",
+        "value":"8.8.8.8"
+      },
+      {
+        "confKey":"dns2",
+        "value":"8.8.8.8"
       }
     ]
   },

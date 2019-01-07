@@ -1,23 +1,36 @@
 {
   "vendor":"open air interface",
   "version":"0.1",
-  "name":"oai_mme",
-  "type":"oai_mme",
+  "name":"oai_spgw1",
+  "type":"oai_spgw1",
   "endpoint":"generic",
   "configurations":
   {
+    "name":"config_name",
+    "configurationParameters":
+    [
+      {
+        "confKey":"address",
+        "value":"12.1.1.2 - 12.1.1.224"
+      },
+      {
+        "confKey":"dns1",
+        "value":"8.8.8.8"
+      },
+      {
+        "confKey":"dns2",
+        "value":"8.8.8.8"
+      }
+    ]
   },
   "vdu":
   [
     {
       "vm_image":
       [
-        "oai_mme"
+        "oai_spgw"
       ],
-      "vimInstanceName":
-      [
-      ],
-      "scale_in_out":1,
+      "scale_in_out": 1,
       "vnfc":
       [
         {
@@ -28,7 +41,7 @@
               "interfaceId":1
             },
             {
-              "virtual_link_reference":"S6a",
+              "virtual_link_reference":"S11",
               "interfaceId":2
             },
             {
@@ -36,12 +49,8 @@
               "interfaceId":3
             },
             {
-              "virtual_link_reference":"S11",
+              "virtual_link_reference":"ext",
               "interfaceId":4
-            },
-            {
-              "virtual_link_reference":"S10",
-              "interfaceId":5
             }
           ]
         }
@@ -54,16 +63,13 @@
       "name":"mngt"
     },
     {
-      "name":"S6a"
+      "name":"S11"
     },
     {
       "name":"ut"
     },
     {
-      "name":"S11"
-    },
-    {
-      "name":"S10"
+      "name":"ext"
     }
   ],
   "lifecycle_event":
@@ -74,15 +80,6 @@
       [
         "multinic.sh",
         "instantiate.sh"
-      ]
-    },
-    {
-      "event":"CONFIGURE",
-      "lifecycle_events":
-      [
-        "oai_hss_joined.sh",
-        "oai_spgw1_joined.sh",
-        "oai_spgw2_joined.sh"
       ]
     },
     {
@@ -98,17 +95,5 @@
     {
       "flavour_key":"m1.small"
     }
-  ],
-  "requires":
-  {
-    "oai_hss":{
-      "parameters":["S6a"]
-    },
-    "oai_spgw1":{
-      "parameters":["S11"]
-    },
-    "oai_spgw2":{
-      "parameters":["S11"]
-    }
-  }
+  ]
 }

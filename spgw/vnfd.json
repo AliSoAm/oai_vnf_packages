@@ -37,13 +37,11 @@
               "interfaceId":2
             },
             {
-              "floatingIp":"random",
-              "virtual_link_reference":"S1U",
+              "virtual_link_reference":"ut",
               "interfaceId":3
             },
             {
-              "floatingIp":"random",
-              "virtual_link_reference":"SGi",
+              "virtual_link_reference":"ext",
               "interfaceId":4
             }
           ]
@@ -60,10 +58,10 @@
       "name":"S11"
     },
     {
-      "name":"S1U"
+      "name":"ut"
     },
     {
-      "name":"SGi"
+      "name":"ext"
     }
   ],
   "lifecycle_event":
@@ -72,7 +70,8 @@
       "event":"INSTANTIATE",
       "lifecycle_events":
       [
-        "multinic.sh"
+        "multinic.sh",
+        "instantiate.sh"
       ]
     },
     {

@@ -32,8 +32,7 @@
               "interfaceId":2
             },
             {
-              "floatingIp":"random",
-              "virtual_link_reference":"S1",
+              "virtual_link_reference":"ut",
               "interfaceId":3
             },
             {
@@ -58,7 +57,7 @@
       "name":"S6a"
     },
     {
-      "name":"S1"
+      "name":"ut"
     },
     {
       "name":"S11"

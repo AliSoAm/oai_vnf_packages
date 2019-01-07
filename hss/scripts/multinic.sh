@@ -9,7 +9,7 @@ for interface in $(ls -1 /sys/class/net | grep ens | egrep -v ens3) ;do
   cat $netfile | grep $interface >> /dev/null
   if [ $? -ne 0 ];then
     sudo bash -c "echo 'auto $interface' >> ${netfile}"
-    sudo bash -c "echo 'iface $interface inet dhcp' >> ${netfile}"
+    sudo bash -c "echo 'iface $interface inet manual' >> ${netfile}"
     sudo ifup $interface
   fi
 done

@@ -6,6 +6,18 @@
   "endpoint":"generic",
   "configurations":
   {
+    "name":"Operator Configurations",
+    "configurationParameters":
+    [
+      {
+        "confKey":"MCC",
+        "value":"262"
+      },
+      {
+        "confKey":"MNC",
+        "value":"79"
+      }
+    ]
   },
   "vdu":
   [

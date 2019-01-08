@@ -6,12 +6,24 @@
   "endpoint":"generic",
   "configurations":
   {
-    "name":"config_name",
+    "name":"PDN Gateway Configurations",
     "configurationParameters":
     [
       {
-        "confKey":"key",
-        "value":"value"
+        "confKey":"SGI_ADDRESS",
+        "value":"12.1.1.2 - 12.1.1.224"
+      },
+      {
+        "confKey":"SGI_NEXT_HOPE",
+        "value":"12.1.1.248"
+      },
+      {
+        "confKey":"DNS1",
+        "value":"8.8.8.8"
+      },
+      {
+        "confKey":"DNS2",
+        "value":"8.8.8.8"
       }
     ]
   },

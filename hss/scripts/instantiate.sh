@@ -8,11 +8,11 @@ done
 Cassandra_Server_IP='127.0.0.1'
 cqlsh --file ../src/hss_rel14/db/oai_db.cql $Cassandra_Server_IP
 
-./data_provisioning_users --apn default --apn2 internet --key fec86ba6eb707ed08905757b1bb44b8f --imsi-first 262791234561000 --msisdn-first 2627912345000 --mme-identity mme.ng4T.com --no-of-users 20 --realm ng4T.com --truncate True  --verbose True --cassandra-cluster $Cassandra_Server_IP
+./data_provisioning_users --apn default --apn2 internet --key fec86ba6eb707ed08905757b1bb44b8f --imsi-first 262791234561000 --msisdn-first 2627912345000 --mme-identity mme.ng4T.com --no-of-users 50 --realm ng4T.com --truncate True  --verbose True --cassandra-cluster $Cassandra_Server_IP
 
 ./data_provisioning_mme --id 3 --mme-identity mme.ng4T.com --realm ng4T.com --ue-reachability 1 --truncate True  --verbose True
 
-./data_provisioning_users --apn default --apn2 internet --key fec86ba6eb707ed08905757b1bb44b8f --imsi-first 262801234561000 --msisdn-first 2628012345000 --mme-identity mme2.ng4T.com --no-of-users 20 --realm ng4T.com --truncate False  --verbose True --cassandra-cluster $Cassandra_Server_IP
+./data_provisioning_users --apn default --apn2 internet --key fec86ba6eb707ed08905757b1bb44b8f --imsi-first 262801234561000 --msisdn-first 2628012345000 --mme-identity mme2.ng4T.com --no-of-users 50 --realm ng4T.com --truncate False  --verbose True --cassandra-cluster $Cassandra_Server_IP
 
 ./data_provisioning_mme --id 4 --mme-identity mme2.ng4T.com --realm ng4T.com --ue-reachability 1 --truncate False  --verbose True
 

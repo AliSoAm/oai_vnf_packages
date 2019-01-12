@@ -49,11 +49,11 @@
               "interfaceId":2
             },
             {
-              "virtual_link_reference":"ut",
+              "virtual_link_reference":"UT",
               "interfaceId":3
             },
             {
-              "virtual_link_reference":"ext",
+              "virtual_link_reference":"SGi",
               "interfaceId":4
             }
           ]
@@ -70,10 +70,10 @@
       "name":"S11"
     },
     {
-      "name":"ut"
+      "name":"UT"
     },
     {
-      "name":"ext"
+      "name":"SGi"
     }
   ],
   "lifecycle_event":

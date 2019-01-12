@@ -1,8 +1,8 @@
 {
   "vendor":"open air interface",
   "version":"0.1",
-  "name":"oai_mme",
-  "type":"oai_mme",
+  "name":"oai_mme_hss",
+  "type":"oai_mme_hss",
   "endpoint":"generic",
   "configurations":
   {
@@ -16,6 +16,30 @@
       {
         "confKey":"MNC",
         "value":"79"
+      },
+      {
+        "confKey":"MME_CODE",
+        "value":"3"
+      },
+      {
+        "confKey":"MME_GID",
+        "value":"32768"
+      },
+      {
+        "confKey":"REALM",
+        "value":"ng4T.com"
+      },
+      {
+        "confKey":"MME_HOSTNAME",
+        "value":"mme"
+      },
+      {
+        "confKey":"HSS_IP",
+        "value":"192.168.100.100"
+      },
+      {
+        "confKey":"HSS_HOSTNAME",
+        "value":"hss"
       }
     ]
   },
@@ -92,7 +116,6 @@
       "event":"CONFIGURE",
       "lifecycle_events":
       [
-        "oai_hss_joined.sh",
         "oai_spgw_joined.sh"
       ]
     },
@@ -112,9 +135,6 @@
   ],
   "requires":
   {
-    "oai_hss":{
-      "parameters":["S6a"]
-    },
     "oai_spgw":{
       "parameters":["S11"]
     }

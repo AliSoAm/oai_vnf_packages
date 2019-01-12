@@ -15,16 +15,16 @@ declare -A MME_CONF
 MME_CONF[@MME_S6A_IP_ADDR@]="${S6a}"
 MME_CONF[@INSTANCE@]=$INSTANCE
 MME_CONF[@PREFIX@]=$PREFIX
-MME_CONF[@REALM@]='ng4T.com'
+MME_CONF[@REALM@]="${REALM}"
 MME_CONF[@PID_DIRECTORY@]='/var/run'
-MME_CONF[@MME_FQDN@]="mme.${MME_CONF[@REALM@]}"
-MME_CONF[@HSS_HOSTNAME@]='hss'
+MME_CONF[@MME_FQDN@]="${MME_HOSTNAME}.${MME_CONF[@REALM@]}"
+MME_CONF[@HSS_HOSTNAME@]="${HSS_HOSTNAME}"
 MME_CONF[@HSS_FQDN@]="${MME_CONF[@HSS_HOSTNAME@]}.${MME_CONF[@REALM@]}"
-MME_CONF[@HSS_IP_ADDR@]="${OB_oai_hss_VNFC_S6a}"
-MME_CONF[@MCC@]="$MCC"
-MME_CONF[@MNC@]="$MNC"
-MME_CONF[@MME_GID@]='32768'
-MME_CONF[@MME_CODE@]='3'
+MME_CONF[@HSS_IP_ADDR@]="${HSS_IP}"
+MME_CONF[@MCC@]="${MCC}"
+MME_CONF[@MNC@]="${MNC}"
+MME_CONF[@MME_GID@]="${MME_GID}"
+MME_CONF[@MME_CODE@]="${MME_CODE}"
 MME_CONF[@TAC_0@]='600'
 MME_CONF[@TAC_1@]='601'
 MME_CONF[@TAC_2@]='602'
@@ -78,5 +78,5 @@ for K in "${!MME_CONF[@]}"; do
 done
 
 # freeDiameter certificate
-sudo ./check_mme_s6a_certificate $PREFIX/freeDiameter mme.${MME_CONF[@REALM@]}
+sudo ./check_mme_s6a_certificate $PREFIX/freeDiameter ${MME_HOSTNAME}.${MME_CONF[@REALM@]}
 nohup ./run_mme --config-file $PREFIX/mme.conf --set-virt-if > mme.out 2> mme.err &

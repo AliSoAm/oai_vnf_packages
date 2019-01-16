@@ -16,6 +16,34 @@
       {
         "confKey":"MNC",
         "value":"79"
+      },
+      {
+        "confKey":"MME_CODE",
+        "value":"3"
+      },
+      {
+        "confKey":"MME_GID",
+        "value":"32768"
+      },
+      {
+        "confKey":"REALM",
+        "value":"ng4T.com"
+      },
+      {
+        "confKey":"MME_HOSTNAME",
+        "value":"mme"
+      },
+      {
+        "confKey":"HSS_HOSTNAME",
+        "value":"hss"
+      },
+      {
+        "confKey":"OUTPUT",
+        "value":"192.168.0.106:7654"
+      },
+      {
+        "confKey":"ELASTICSEARCH_HOST",
+        "value":"192.168.0.106:9200"
       }
     ]
   },
@@ -85,6 +113,7 @@
       "lifecycle_events":
       [
         "multinic.sh",
+        "metricbeat.sh",
         "instantiate.sh"
       ]
     },

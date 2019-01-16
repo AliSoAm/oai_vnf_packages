@@ -40,6 +40,14 @@
       {
         "confKey":"HSS_HOSTNAME",
         "value":"hss"
+      },
+      {
+        "confKey":"OUTPUT",
+        "value":"192.168.0.106:7654"
+      },
+      {
+        "confKey":"ELASTICSEARCH_HOST",
+        "value":"192.168.0.106:9200"
       }
     ]
   },
@@ -109,6 +117,7 @@
       "lifecycle_events":
       [
         "multinic.sh",
+        "metricbeat.sh",
         "instantiate.sh"
       ]
     },

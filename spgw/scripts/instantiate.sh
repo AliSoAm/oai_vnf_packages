@@ -4,8 +4,9 @@ INSTANCE=1
 PREFIX='/usr/local/etc/oai-vepc/spgw1'
 sudo mkdir -m 777 -p $PREFIX
 cp ../etc/spgw.conf  $PREFIX
+echo "Output: ${OUTPUT}"
 echo "address: ${SGI_ADDRESS} dns1: ${DNS1}  dns2: ${DNS2}"
-echo "IP S11: ${S11} - S1u: ${UT} - SGi: ${SGi}"
+echo "IP-> S11: ${S11} - S1u: ${UT} - SGi: ${SGi}"
 declare -A SPGW_CONF
 SPGW_CONF[@PID_DIRECTORY@]='/var/run'
 SPGW_CONF[@SGW_INTERFACE_NAME_FOR_S11@]="ens4"
@@ -13,7 +14,7 @@ SPGW_CONF[@SGW_IPV4_ADDRESS_FOR_S11@]="${S11}/24"
 SPGW_CONF[@SGW_INTERFACE_NAME_FOR_S1U_S12_S4_UP@]="ens5"
 SPGW_CONF[@SGW_IPV4_ADDRESS_FOR_S1U_S12_S4_UP@]="${UT}/24"
 SPGW_CONF[@SGW_UDP_PORT_FOR_S1U_S12_S4_UP@]=2152
-SPGW_CONF[@OUTPUT@]="CONSOLE"
+SPGW_CONF[@OUTPUT@]="${OUTPUT}"
 SPGW_CONF[@INSTANCE@]=$INSTANCE
 SPGW_CONF[@PID_DIRECTORY@]='/var/run'
 SPGW_CONF[@PGW_INTERFACE_NAME_FOR_SGI@]="ens6"

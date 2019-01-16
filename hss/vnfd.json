@@ -6,6 +6,14 @@
   "endpoint": "generic",
   "configurations":
   {
+    "name":"Operator Configurations",
+    "configurationParameters":
+    [
+      {
+        "confKey":"ELASTICSEARCH_HOST",
+        "value":"192.168.0.106:9200"
+      }
+    ]
   },
   "vdu":
   [
@@ -52,6 +60,7 @@
       "lifecycle_events":
       [
         "multinic.sh",
+        "metricbeat.sh",
         "instantiate.sh"
       ]
     },

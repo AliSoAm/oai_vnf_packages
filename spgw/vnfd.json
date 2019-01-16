@@ -11,11 +11,11 @@
     [
       {
         "confKey":"SGI_ADDRESS",
-        "value":"12.1.1.2 - 12.1.1.224"
+        "value":"12.1.1.50 - 12.1.1.99"
       },
       {
         "confKey":"SGI_NEXT_HOPE",
-        "value":"12.1.1.248"
+        "value":"12.1.1.4"
       },
       {
         "confKey":"DNS1",
@@ -24,6 +24,14 @@
       {
         "confKey":"DNS2",
         "value":"8.8.8.8"
+      },
+      {
+        "confKey":"OUTPUT",
+        "value":"CONSOLE"
+      },
+      {
+        "confKey":"ELASTICSEARCH_HOST",
+        "value":"192.168.0.106:9200"
       }
     ]
   },
@@ -83,6 +91,7 @@
       "lifecycle_events":
       [
         "multinic.sh",
+        "metricbeat.sh",
         "instantiate.sh"
       ]
     },

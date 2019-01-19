@@ -9,6 +9,4 @@ docker run -d \
   --volume="/:/hostfs:ro" \
   docker.elastic.co/beats/metricbeat:6.5.4 metricbeat -e \
   -E output.elasticsearch.hosts=["${ELASTICSEARCH_HOST}"] \
-  -E output.elasticsearch.index="metricbeat-spgw" \
-  -E setup.template.name="metricbeat" \
-  -E setup.template.pattern="metricbeat-*"
+  -E core_id=$CORE_ID -E vnf_type="spgw"

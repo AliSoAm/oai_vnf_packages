@@ -44,6 +44,10 @@
       {
         "confKey":"ELASTICSEARCH_HOST",
         "value":"192.168.0.106:9200"
+      },
+      {
+        "confKey":"CORE_ID",
+        "value":1
       }
     ]
   },

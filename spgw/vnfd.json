@@ -32,6 +32,10 @@
       {
         "confKey":"ELASTICSEARCH_HOST",
         "value":"192.168.0.106:9200"
+      },
+      {
+        "confKey":"CORE_ID",
+        "value":1
       }
     ]
   },
@@ -42,7 +46,7 @@
       [
         "oai_spgw"
       ],
-      "scale_in_out": 1,
+      "scale_in_out": 2,
       "vnfc":
       [
         {
@@ -107,6 +111,32 @@
   [
     {
       "flavour_key":"m1.small"
+    }
+  ],
+  "auto_scale_policy":[
+    {
+      "name":"scale-out",
+      "threshold":100,
+      "comparisonOperator":">=",
+      "period":30,
+      "cooldown":3600,
+      "mode":"REACTIVE",
+      "type":"WEIGHTED",
+      "alarms": [
+        {
+          "metric":"system.cpu.load[percpu,avg1]",
+          "statistic":"avg",
+          "comparisonOperator":">",
+          "threshold":0.60,
+          "weight":1
+        }
+      ],
+      "actions": [
+        {
+          "type":"SCALE_OUT",
+          "value":"1"
+        }
+      ]
     }
   ]
 }

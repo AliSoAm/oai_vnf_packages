@@ -35,7 +35,7 @@
       },
       {
         "confKey":"CORE_ID",
-        "value":1
+        "value":"1"
       }
     ]
   },
@@ -119,7 +119,7 @@
       "threshold":100,
       "comparisonOperator":">=",
       "period":30,
-      "cooldown":3600,
+      "cooldown":60,
       "mode":"REACTIVE",
       "type":"WEIGHTED",
       "alarms": [

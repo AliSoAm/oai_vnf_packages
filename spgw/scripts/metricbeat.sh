@@ -9,4 +9,4 @@ docker run -d \
   --volume="/:/hostfs:ro" \
   docker.elastic.co/beats/metricbeat:6.5.4 metricbeat -e \
   -E output.elasticsearch.hosts=["${ELASTICSEARCH_HOST}"] \
-  -E core_id=$CORE_ID -E vnf_type="spgw"
+  -E fields.core_id=$CORE_ID -E fields.vnf_type="spgw"

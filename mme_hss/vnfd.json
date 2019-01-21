@@ -35,7 +35,7 @@
       },
       {
         "confKey":"HSS_IP",
-        "value":"192.168.100.100"
+        "value":"192.168.10.1"
       },
       {
         "confKey":"HSS_HOSTNAME",
@@ -51,7 +51,7 @@
       },
       {
         "confKey":"CORE_ID",
-        "value":1
+        "value":"1"
       }
     ]
   },

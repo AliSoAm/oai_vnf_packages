@@ -127,13 +127,37 @@
           "metric":"system.cpu.load[percpu,avg1]",
           "statistic":"avg",
           "comparisonOperator":">",
-          "threshold":0.60,
+          "threshold":0.80,
           "weight":1
         }
       ],
       "actions": [
         {
           "type":"SCALE_OUT",
+          "value":"1"
+        }
+      ]
+    },
+    {
+      "name":"scale-in",
+      "threshold":100,
+      "comparisonOperator":">=",
+      "period":30,
+      "cooldown":60,
+      "mode":"REACTIVE",
+      "type":"WEIGHTED",
+      "alarms": [
+        {
+          "metric":"system.cpu.load[percpu,avg1]",
+          "statistic":"avg",
+          "comparisonOperator":"<",
+          "threshold":0.40,
+          "weight":1
+        }
+      ],
+      "actions": [
+        {
+          "type":"SCALE_IN",
           "value":"1"
         }
       ]
